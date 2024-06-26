@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DQD_LESSON09.Models.Ketqua>
+
+@{
+    ViewBag.Title = "DqdIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("DqdCreate New", "DqdCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SinhVien.HoSV)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinhVien.HoSV)
+        </td>
+        <td>
+            @Html.ActionLink("DqdEdit", "DqdEdit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("DqdDetails", "DqdDetails", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("DqdDelete", "DqdDelete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
